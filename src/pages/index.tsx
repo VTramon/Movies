@@ -1,10 +1,15 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import type { NextPage } from 'next';
+import { TopMoviesBox } from '../components/TopMoviesBox';
+import { TopSeriesBox } from '../components/TopSeriesBox';
+import styles from '../styles/Home.module.scss';
 
 const Home: NextPage = () => {
-  return <div className={styles.layout}>Hello world</div>
-}
+  return (
+    <div className={styles.layout}>
+      <TopMoviesBox />
+      <TopSeriesBox />
+    </div>
+  );
+};
 
-export default Home
+export default Home;
