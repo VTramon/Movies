@@ -4,10 +4,15 @@ import styles from './styles.module.scss';
 
 type TopBoxProps = {
   children: ReactNode;
+  dataTestId: string;
 };
 
 const TopBox: React.FC<TopBoxProps> = (props) => {
-  return <section className={styles.box}>{props.children}</section>;
+  return (
+    <section data-testid={props.dataTestId} className={styles.box}>
+      {props.children}
+    </section>
+  );
 };
 
 export { TopBox };

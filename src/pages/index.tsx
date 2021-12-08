@@ -32,15 +32,22 @@ const Home: NextPage = () => {
   }, []);
 
   return (
-    <div className={styles.layout}>
-      <TopBox>
+    <main className={styles.layout}>
+      <TopBox dataTestId="series">
         {!!series
           ? series.map((serie, index) => {
               return <TopCard items={serie} key={index} />;
             })
           : undefined}
       </TopBox>
-    </div>
+      <TopBox dataTestId="movies">
+        {!!movies
+          ? movies.map((movie, index) => {
+              return <TopCard items={movie} key={index} />;
+            })
+          : undefined}
+      </TopBox>
+    </main>
   );
 };
 
