@@ -1,10 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 import { TopMoviesCardProps } from '../../Types';
-import Image from 'next/image';
+import styles from './styles.module.scss';
 
 const TopCard = (props: TopMoviesCardProps) => {
   return (
-    <div>
+    <div className={styles.card}>
       {props.items.image ? (
         <img src={props.items.image} alt={props.items.title} />
       ) : undefined}
