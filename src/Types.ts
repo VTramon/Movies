@@ -1,21 +1,13 @@
 export type TopMoviesCardProps = {
   items: {
-    id?: string
-    rank?: string
-    title?: string
-    year?: string
-    image?: string
-    crew?: string
-    imDbRating?: string
-  }
-}
+    id?: string;
+    title?: string;
+    image?: string;
+  };
+};
 
 export type TopMoviesBoxProps = {
-  id?: string
-  rank?: string
-  title?: string
-  year?: string
-  image?: string
-  crew?: string
-  imDbRating?: string
-}
+  id?: string;
+  title?: string;
+  image?: string;
+};

@@ -1,52 +1,31 @@
-import axios from 'axios';
 import type { NextPage } from 'next';
-import { useEffect, useState } from 'react';
-import { TopBox } from '../components/TopBox';
-import { TopCard } from '../components/TopCard';
+import Head from 'next/head';
+import { useState } from 'react';
+import { Header } from 'src/components/Header';
+import { PopularMovies } from 'src/components/PopularMovies';
+import { PopularSeries } from 'src/components/PopularSeries';
 import styles from '../styles/Home.module.scss';
-import { TopMoviesBoxProps } from '../Types';
 
 const Home: NextPage = () => {
-  const [series, setSeries] = useState<TopMoviesBoxProps[]>();
-  const [movies, setMovies] = useState<TopMoviesBoxProps[]>();
+  const [series, setSeries] = useState(false);
+  const [movies, setMovies] = useState(false);
 
-  const LoadSeries = async () => {
-    const response = await axios.get(
-      `https://imdb-api.com/en/API/MostPopularTVs/k_h4m9g5ee`
-    );
-    const data = response.data['items'];
-    setSeries(data);
+  const RenderTopBox = (value: string) => {
+    if (value === 'movies') {
+      setSeries(false);
+      setMovies(true);
+    } else if (value === 'series') {
+      setMovies(false);
+      setSeries(true);
+    }
+    return;
   };
-
-  const LoadMovies = async () => {
-    const response = await axios.get(
-      `https://imdb-api.com/en/API/MostPopularMovies/k_h4m9g5ee`
-    );
-    const data = response.data['items'];
-    setMovies(data);
-  };
-
-  useEffect(() => {
-    LoadSeries();
-    LoadMovies();
-  }, []);
 
   return (
     <main className={styles.layout}>
-      <TopBox dataTestId="series">
-        {!!series
-          ? series.map((serie, index) => {
-              return <TopCard items={serie} key={index} />;
-            })
-          : undefined}
-      </TopBox>
-      <TopBox dataTestId="movies">
-        {!!movies
-          ? movies.map((movie, index) => {
-              return <TopCard items={movie} key={index} />;
-            })
-          : undefined}
-      </TopBox>
+      <Header CalbackFunction={RenderTopBox} />
+      {movies == true ? <PopularMovies /> : undefined}
+      {series == true ? <PopularSeries /> : undefined}
     </main>
   );
 };

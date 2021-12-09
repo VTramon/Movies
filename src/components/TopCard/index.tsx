@@ -9,7 +9,6 @@ const TopCard = (props: TopMoviesCardProps) => {
         <img src={props.items.image} alt={props.items.title} />
       ) : undefined}
       <h3>{props.items.title}</h3>
-      <p>{props.items.rank}</p>
     </div>
   );
 };
