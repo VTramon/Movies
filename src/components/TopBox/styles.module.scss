@@ -1,10 +1,12 @@
 .box {
   display: flex;
-  justify-content: space-around;
-  align-items: center;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 20px;
   width: 90vw;
-  height: auto;
-  background-color: rgb(49, 49, 49);
+  border-radius: 8px;
+  background-color: rgb(54, 54, 54);
+  gap: 4px;
 }
