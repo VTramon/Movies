@@ -15,10 +15,10 @@ const Home: NextPage = () => {
   const RenderTopBox = (value: string) => {
     if (value === 'movies') {
       setSeries(false);
-      setMovies(true);
+      setMovies(!movies);
     } else if (value === 'series') {
       setMovies(false);
-      setSeries(true);
+      setSeries(!series);
     }
     return;
   };
@@ -43,9 +43,9 @@ const Home: NextPage = () => {
   return (
     <main className={styles.layout}>
       <Header CalbackFunction={RenderTopBox} />
-      {modal == true ? <Modal callbackFunction={HandleModal} /> : undefined}
-      {movies == true ? <PopularMovies /> : undefined}
-      {series == true ? <PopularSeries /> : undefined}
+      {modal == true ? <Modal callbackFunction={HandleModal} /> : null}
+      {movies == true ? <PopularMovies /> : null}
+      {series == true ? <PopularSeries /> : null}
     </main>
   );
 };

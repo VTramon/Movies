@@ -4,8 +4,12 @@ import { TopBox } from 'src/components/TopBox';
 import { TopCard } from 'src/components/TopCard';
 import { TopMoviesBoxProps } from 'src/Types';
 
+// type PopularSeriesProps = {
+//   active: boolean;
+// };
+
 const PopularSeries = () => {
-  const [series, setSeries] = useState<TopMoviesBoxProps[]>();
+  const [series, setSeries] = useState<TopMoviesBoxProps[]>([]);
 
   const LoadSeries = async () => {
     const response = await axios.get(
@@ -18,6 +22,7 @@ const PopularSeries = () => {
   useEffect(() => {
     LoadSeries();
   }, []);
+
   return (
     <TopBox dataTestId="series">
       {!!series
