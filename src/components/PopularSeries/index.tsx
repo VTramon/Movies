@@ -4,10 +4,6 @@ import { TopBox } from 'src/components/TopBox';
 import { TopCard } from 'src/components/TopCard';
 import { TopMoviesBoxProps } from 'src/Types';
 
-// type PopularSeriesProps = {
-//   active: boolean;
-// };
-
 const PopularSeries = () => {
   const [series, setSeries] = useState<TopMoviesBoxProps[]>([]);
 

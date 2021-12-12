@@ -43,6 +43,7 @@ const Home: NextPage = () => {
   return (
     <main className={styles.layout}>
       <Header CalbackFunction={RenderTopBox} />
+
       {modal == true ? <Modal callbackFunction={HandleModal} /> : null}
       {movies == true ? <PopularMovies /> : null}
       {series == true ? <PopularSeries /> : null}
